@@ -1,0 +1,17 @@
+.link {
+  @apply p-2.5 flex rounded-md gap-6 items-center md:cursor-pointer cursor-default duration-300 font-medium;
+  color: #344054;
+}
+
+.active {
+  @apply  text-white;
+  background-color: #16B4FF;
+}
+
+.deactivate:hover {
+    background-color: #ebebeb;
+}
+  
+.subMenu:hover {
+    color: #16B4FF;
+}
