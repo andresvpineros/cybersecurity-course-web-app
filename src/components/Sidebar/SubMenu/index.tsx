@@ -21,11 +21,11 @@ interface SubMenuProps {
 export const SubMenu: React.FC<{ data: SubMenuProps }> = ({ data }) => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  console.log(pathname, data.title)
+
   return (
     <>
       <li
-        className={`${styles.link} ${pathname.includes(data.href) ? styles.active : styles.deactivate}`}
+        className={`${styles.link} ${pathname === data.href ? styles.active : styles.deactivate}`}
         onClick={() => setOpen(!open)}
       >
         {data.icon}
@@ -47,7 +47,6 @@ export const SubMenu: React.FC<{ data: SubMenuProps }> = ({ data }) => {
       >
         {data.subMenusList?.map((menu: SubMenusList, index) => (
           <li key={index}>
-            {/* className="hover:text-blue-600 hover:font-medium" */}
             <Link href={menu.href} className={`${styles.link} ${styles.subMenu}`}>
               {menu.title}
             </Link>
