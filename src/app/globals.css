@@ -74,3 +74,38 @@
     @apply bg-background text-foreground;
   }
 }
+
+.page-container {
+  flex: 1 1 0%;
+  margin-right: auto;
+  margin-left: auto;  
+  max-width: 95rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: center;
+  gap: 50px;
+}
+
+.image {
+  overflow: hidden;
+	transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}

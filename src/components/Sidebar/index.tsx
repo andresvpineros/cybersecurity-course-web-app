@@ -25,11 +25,7 @@ import { MdMenu } from "react-icons/md";
 import { SubMenu } from "./SubMenu";
 import { UserBadge } from "./UserBadge";
 
-interface ISideBar {
-  children: React.ReactNode;
-}
-
-export const Sidebar: React.FC<ISideBar> = ({ children }) => {
+export const Sidebar = () => {
   let isTabletMid = useMediaQuery({ query: "(max-width: 768px)" });
   const [open, setOpen] = useState(isTabletMid ? false : true);
   const pathname = usePathname();
@@ -112,7 +108,7 @@ export const Sidebar: React.FC<ISideBar> = ({ children }) => {
     ? {
         open: {
           x: 0,
-          width: "16rem",
+          width: "20rem",
           transition: {
             damping: 40,
           },
@@ -128,7 +124,7 @@ export const Sidebar: React.FC<ISideBar> = ({ children }) => {
       }
     : {
         open: {
-          width: "18rem",
+          width: "20rem",
           transition: {
             damping: 40,
           },
@@ -148,7 +144,7 @@ export const Sidebar: React.FC<ISideBar> = ({ children }) => {
         initial={{ x: isTabletMid ? -250 : 0 }}
         animate={open ? "open" : "closed"}
         className="flex flex-col bg-white text-gray border-r z-[999] max-w-[20rem] w-[20rem] overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100 md:relative fixed h-screen"
->
+      >
         <div className="flex flex-col flex-1">
           <div className="flex justify-center font-medium py-7 border-slate-300 mx-3">
             <Image src="/images/logo.png" width={180} height={180} alt="" />
@@ -180,23 +176,23 @@ export const Sidebar: React.FC<ISideBar> = ({ children }) => {
           </ul>
         </div>
         <div className="flex flex-col">
-            <ul className="px-2.5 py-5 flex flex-col gap-2 border-b border-slate-300 text-[0.9rem] font-medium">
-              {ConfigMenus.map((menu, i) => (
-                <li key={i}>
-                  <Link
-                    href="#"
-                    className={`${styles.link} ${styles.deactivate}`}
-                  >
-                    {menu.icon}
-                    {menu.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <UserBadge />
-          </div>
+          <ul className="px-2.5 py-5 flex flex-col gap-2 border-b border-slate-300 text-[0.9rem] font-medium">
+            {ConfigMenus.map((menu, i) => (
+              <li key={i}>
+                <Link
+                  href="#"
+                  className={`${styles.link} ${styles.deactivate}`}
+                >
+                  {menu.icon}
+                  {menu.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <UserBadge />
+        </div>
       </motion.div>
-      <div className="m-3 md:hidden" onClick={() => setOpen(true)}>
+      <div className="m-3 md:hidden " onClick={() => setOpen(true)}>
         <MdMenu size={25} />
       </div>
     </nav>
