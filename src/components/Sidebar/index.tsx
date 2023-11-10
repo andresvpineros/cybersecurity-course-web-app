@@ -18,16 +18,18 @@ import {
   BsPerson,
   BsLifePreserver,
   BsMoon,
+  BsCloudSun,
 } from "react-icons/bs";
-import { MdMenu } from "react-icons/md";
+import { useTheme } from "next-themes";
 
 // Components
 import { SubMenu } from "./SubMenu";
 import { UserBadge } from "./UserBadge";
 
 export const Sidebar = () => {
-  let isTabletMid = useMediaQuery({ query: "(max-width: 768px)" });
+  let isTabletMid = useMediaQuery({ query: "(max-width: 900px)" });
   const [open, setOpen] = useState(isTabletMid ? false : true);
+  const { theme, setTheme } = useTheme();
   const pathname = usePathname();
 
   const Menus = [
@@ -84,17 +86,28 @@ export const Sidebar = () => {
   const ConfigMenus = [
     {
       title: "Reporte de Errores",
-      href: "/reports",
+      href: "https://github.com/andresvpineros/ciberseguridad-unir-problemas/issues",
       icon: <BsLifePreserver size={23} className="min-w-max" />,
+      external: true,
       subMenus: false,
     },
     {
       title: "Modo oscuro",
-      href: "/",
       icon: <BsMoon size={23} className="min-w-max" />,
+      external: false,
       subMenus: false,
+      onClick: () => setTheme("dark"),
+    },
+    {
+      title: "Modo claro",
+      icon: <BsCloudSun size={23} className="min-w-max" />,
+      external: false,
+      subMenus: false,
+      onClick: () => setTheme("light"),
     },
   ];
+
+  console.log(theme);
 
   useEffect(() => {
     if (isTabletMid) {
@@ -118,7 +131,7 @@ export const Sidebar = () => {
           width: 0,
           transition: {
             damping: 40,
-            delay: 0.15,
+            delay: 0,
           },
         },
       }
@@ -138,7 +151,7 @@ export const Sidebar = () => {
       };
 
   return (
-    <nav>
+    <nav className="fixed top-0 left-0 bottom-0">
       <motion.div
         variants={NavAnimation}
         initial={{ x: isTabletMid ? -250 : 0 }}
@@ -151,9 +164,9 @@ export const Sidebar = () => {
           </div>
           <ul className="px-2.5 text-[0.9rem] pb-3 flex flex-col gap-2 font-medium">
             {Menus.map((menu, i) => (
-              <>
+              <div key={i}>
                 {menu.subMenus === false ? (
-                  <li key={i}>
+                  <li>
                     <Link
                       href={menu.href}
                       className={`${styles.link} ${
@@ -167,34 +180,60 @@ export const Sidebar = () => {
                     </Link>
                   </li>
                 ) : (
-                  <div key={i}>
+                  <div>
                     <SubMenu data={menu} />
                   </div>
                 )}
-              </>
+              </div>
             ))}
           </ul>
         </div>
         <div className="flex flex-col">
           <ul className="px-2.5 py-5 flex flex-col gap-2 border-b border-slate-300 text-[0.9rem] font-medium">
             {ConfigMenus.map((menu, i) => (
-              <li key={i}>
-                <Link
-                  href="#"
-                  className={`${styles.link} ${styles.deactivate}`}
-                >
-                  {menu.icon}
-                  {menu.title}
-                </Link>
-              </li>
+              <>
+                {menu.href && (
+                  <li key={i}>
+                    <Link
+                      href={menu.href}
+                      target={menu.external ? "_blank" : ""}
+                      className={`${styles.link} ${styles.deactivate}`}
+                    >
+                      {menu.icon}
+                      {menu.title}
+                    </Link>
+                  </li>
+                )}
+              </>
             ))}
+            {theme === "dark" ? (
+              <li>
+                <button
+                  onClick={ConfigMenus[2].onClick}
+                  className={`${styles.button} ${styles.deactivate}`}
+                >
+                  {ConfigMenus[2].icon}
+                  {ConfigMenus[2].title}
+                </button>
+              </li>
+            ) : (
+              <li>
+                <button
+                  onClick={ConfigMenus[1].onClick}
+                  className={`${styles.button} ${styles.deactivate}`}
+                >
+                  {ConfigMenus[1].icon}
+                  {ConfigMenus[1].title}
+                </button>
+              </li>
+            )}
           </ul>
           <UserBadge />
         </div>
       </motion.div>
-      <div className="m-3 md:hidden " onClick={() => setOpen(true)}>
+      {/* <div className="m-3 " onClick={() => setOpen(true)}>
         <MdMenu size={25} />
-      </div>
+      </div> */}
     </nav>
   );
 };

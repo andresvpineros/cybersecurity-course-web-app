@@ -1,41 +1,98 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 30px;
-    width: 800px;
-    margin: auto;
-    text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  width: 800px;
+  margin: auto;
+  text-align: justify;
 }
 
 .title {
-    text-transform: uppercase;
-    width: 100px;
-    color: #232323;
-    font-size: 5rem;
-    font-weight: 700;
-    line-height: 1;
+  text-transform: uppercase;
+  text-size-adjust: auto;
+  width: 100px;
+  color: #232323;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .titleMark {
-    color: #16B4FF;
+  color: #16b4ff;
 }
 
 .info {
-    font-size: 23px;
+  font-size: 23px;
 }
 
 .button {
-    display: flex;
-    justify-content: space-around;
-    gap: 5px;
-    width: 300px;
-    padding: 20px;
-    margin: 0 auto;
-    background-color: #0B91F2;
-    border-radius: 40px;
-    text-transform: uppercase;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: white;
+  display: flex;
+  justify-content: space-around;
+  gap: 5px;
+  width: 300px;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: #0b91f2;
+  border-radius: 40px;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+}
+
+@media (max-width: 1200px) {
+	.container { 
+	  max-width: 100%;
+	}
+}
+
+@media (max-width: 670px) {
+  .title {
+    width: 80px;
+    font-size: 4rem;
+  }
+  
+}
+
+@media (max-width: 540px) {
+  .title {
+    width: 60px;
+    font-size: 3rem;
+  }
+
+  .info {
+    font-size: 20px;
+  }
+}
+
+.animateCharacter {
+  text-transform: uppercase;
+  font-weight: 650;
+  background: linear-gradient(
+    to right,
+    #16b4ff 20%,
+    #16b4ff 40%,
+    #ffc700 60%,
+	#ffc700 80%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 5s ease-in-out infinite alternate;
+}
+
+.animateCharacter:hover {
+  cursor: pointer;
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 20% 50%;
+  }
+  100% {
+    background-position: 85% 50%;
+  }
 }
