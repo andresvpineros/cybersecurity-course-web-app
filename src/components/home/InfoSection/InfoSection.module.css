@@ -18,12 +18,20 @@
   line-height: 1;
 }
 
+[data-theme="dark"] .title {
+  color: white;
+}
+
 .titleMark {
   color: #16b4ff;
 }
 
 .info {
   font-size: 23px;
+}
+
+[data-theme="dark"] .info {
+  color: white;
 }
 
 .button {
@@ -42,9 +50,9 @@
 }
 
 @media (max-width: 1200px) {
-	.container { 
-	  max-width: 100%;
-	}
+  .container {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 670px) {
@@ -52,7 +60,6 @@
     width: 80px;
     font-size: 4rem;
   }
-  
 }
 
 @media (max-width: 540px) {
@@ -74,7 +81,7 @@
     #16b4ff 20%,
     #16b4ff 40%,
     #ffc700 60%,
-	#ffc700 80%
+    #ffc700 80%
   );
 
   -webkit-background-clip: text;

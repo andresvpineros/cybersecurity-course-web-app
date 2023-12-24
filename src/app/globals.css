@@ -76,7 +76,14 @@
 }
 
 [data-theme="dark"] body {
-  background-color: black;
+  background: rgb(0, 167, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 167, 255, 1) 0%,
+    rgba(0, 71, 109, 1) 31%,
+    rgba(0, 27, 41, 1) 56%,
+    rgba(0, 7, 18, 1) 79%
+  );
 }
 
 .content {

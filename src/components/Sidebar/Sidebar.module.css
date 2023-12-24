@@ -21,3 +21,7 @@
 .subMenu:hover {
   color: #16b4ff;
 }
+
+[data-theme="dark"] .dark-mode-sidebar {
+  background-color: #344054;
+}

@@ -156,7 +156,7 @@ export const Sidebar = () => {
         variants={NavAnimation}
         initial={{ x: isTabletMid ? -250 : 0 }}
         animate={open ? "open" : "closed"}
-        className="flex flex-col bg-white text-gray border-r z-[999] max-w-[20rem] w-[20rem] overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100 md:relative fixed h-screen"
+        className="flex flex-col bg-white text-gray border-r z-[999] max-w-[20rem] w-[20rem] overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100 md:relative fixed h-screen dark-mode-sidebar"
       >
         <div className="flex flex-col flex-1">
           <div className="flex justify-center font-medium py-7 border-slate-300 mx-3">
