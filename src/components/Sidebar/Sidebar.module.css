@@ -3,13 +3,26 @@
   color: #344054;
 }
 
+[data-theme="dark"] .link {
+  color: rgb(213, 213, 213);
+}
+
 .button {
   @apply p-2.5 flex rounded-md gap-6 items-center md:cursor-pointer cursor-default duration-300 font-medium;
   color: #344054;
   width: 100%;
 }
 
+[data-theme="dark"] .button {
+  color: rgb(213, 213, 213);
+}
+
 .active {
+  @apply text-white;
+  background-color: #16b4ff;
+}
+
+[data-theme="dark"] .active {
   @apply text-white;
   background-color: #16b4ff;
 }
@@ -18,10 +31,42 @@
   background-color: #ebebeb;
 }
 
+[data-theme="dark"] .deactivate:hover {
+  background-color: #001842;
+}
+
 .subMenu:hover {
   color: #16b4ff;
 }
 
-[data-theme="dark"] .dark-mode-sidebar {
-  background-color: #344054;
+.colorModeSidebar {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+[data-theme="dark"] .colorModeSidebar {
+  background-color: #000712;
+  border-color: #001333;
+}
+
+.userBadgeText {
+  --tw-text-opacity: 1;
+  color: rgb(68 64 60 / var(--tw-text-opacity));
+}
+
+[data-theme="dark"] .userBadgeText {
+  --tw-text-opacity: 1;
+  color: rgb(213 213 213 / var(--tw-text-opacity));
+}
+
+.userMenuBorder {
+  --tw-border-opacity: 1;
+  border-color: rgb(203 213 225 / var(--tw-border-opacity));
+  border-bottom-width: 1px;
+}
+
+[data-theme="dark"] .userMenuBorder {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 86 126 / var(--tw-border-opacity));
+  border-bottom-width: 1px;
 }

@@ -107,8 +107,6 @@ export const Sidebar = () => {
     },
   ];
 
-  console.log(theme);
-
   useEffect(() => {
     if (isTabletMid) {
       setOpen(false);
@@ -156,11 +154,20 @@ export const Sidebar = () => {
         variants={NavAnimation}
         initial={{ x: isTabletMid ? -250 : 0 }}
         animate={open ? "open" : "closed"}
-        className="flex flex-col bg-white text-gray border-r z-[999] max-w-[20rem] w-[20rem] overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100 md:relative fixed h-screen dark-mode-sidebar"
+        className={`flex flex-col text-gray border-r z-[999] max-w-[20rem] w-[20rem] overflow-x-hidden scrollbar-thin scrollbar-track-white scrollbar-thumb-slate-100 md:relative fixed h-screen ${styles.colorModeSidebar}`}
       >
         <div className="flex flex-col flex-1">
           <div className="flex justify-center font-medium py-7 border-slate-300 mx-3">
-            <Image src="/images/logo.png" width={180} height={180} alt="" />
+            <Image
+              src={
+                theme === "light"
+                  ? "/images/logo.png"
+                  : "/images/logo-white.png"
+              }
+              width={180}
+              height={180}
+              alt=""
+            />
           </div>
           <ul className="px-2.5 text-[0.9rem] pb-3 flex flex-col gap-2 font-medium">
             {Menus.map((menu, i) => (
@@ -189,7 +196,9 @@ export const Sidebar = () => {
           </ul>
         </div>
         <div className="flex flex-col">
-          <ul className="px-2.5 py-5 flex flex-col gap-2 border-b border-slate-300 text-[0.9rem] font-medium">
+          <ul
+            className={`px-2.5 py-5 flex flex-col gap-2 text-[0.9rem] font-medium ${styles.userMenuBorder}`}
+          >
             {ConfigMenus.map((menu, i) => (
               <>
                 {menu.href && (

@@ -71,7 +71,14 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    background: rgb(66, 190, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(66, 190, 255, 1) 0%,
+      rgba(180, 229, 255, 1) 25%,
+      rgba(228, 246, 255, 1) 50%,
+      rgba(255, 255, 255, 1) 79%
+    );
   }
 }
 
