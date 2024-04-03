@@ -1,0 +1,12 @@
+{
+    "module_1": {
+        "position": 1,
+        "title": "Introducción",
+        "description": "lorem Ipsum is Lorem Ipsum"
+    },
+    "module_2": {
+        "position": 2,
+        "title": "OSINT",
+        "description": "lorem Ipsum is Lorem Ipsum"
+    }
+}

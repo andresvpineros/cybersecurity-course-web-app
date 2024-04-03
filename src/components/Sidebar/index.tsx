@@ -43,17 +43,7 @@ export const Sidebar = () => {
       title: "Módulos",
       href: "/modules",
       icon: <BsLayers size={23} className="min-w-max" />,
-      subMenus: true,
-      subMenusList: [
-        {
-          title: "Module 1. Introduction",
-          href: "/modules/1/",
-        },
-        {
-          title: "Module 2. OSINT Tools",
-          href: "/modules/2/",
-        },
-      ],
+      subMenus: false,
     },
     {
       title: "Recursos",
@@ -148,6 +138,8 @@ export const Sidebar = () => {
         },
       };
 
+  console.log(theme === "light");
+
   return (
     <nav className="fixed top-0 left-0 bottom-0">
       <motion.div
@@ -160,9 +152,7 @@ export const Sidebar = () => {
           <div className="flex justify-center font-medium py-7 border-slate-300 mx-3">
             <Image
               src={
-                theme === "light"
-                  ? "/images/logo.png"
-                  : "/images/logo-white.png"
+                theme === "dark" ? "/images/logo-white.png" : "/images/logo.png"
               }
               width={180}
               height={180}

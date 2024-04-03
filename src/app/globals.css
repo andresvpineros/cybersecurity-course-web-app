@@ -115,6 +115,13 @@
   gap: 50px;
 }
 
+.general-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+}
+
 .image {
   overflow: hidden;
   transform: translatey(0px);
